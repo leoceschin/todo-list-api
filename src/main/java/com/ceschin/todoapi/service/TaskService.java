@@ -1,7 +1,6 @@
 package com.ceschin.todoapi.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +28,15 @@ public class TaskService {
         return taskRepository.findById(id)
            .map(task -> ResponseEntity.ok().body(task))
            .orElse(ResponseEntity.notFound().build());
+    }
+
+    public ResponseEntity<Task> updateTaskById(Task task, Long id){
+        return taskRepository.findById(id)
+            .map(taskToUpdate ->{
+                taskToUpdate.setComplete(task.isComplete());
+                Task updated = taskRepository.save(taskToUpdate);
+                return ResponseEntity.ok().body(updated);
+            }).orElse(ResponseEntity.notFound().build());
     }
 
 }    

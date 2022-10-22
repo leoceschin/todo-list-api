@@ -42,13 +42,13 @@ public class Task {
         this.description = description;
     }
     public boolean isComplete() {
-        return isComplete;
+        return this.isComplete;
     }
     public void setComplete(boolean isComplete) {
         this.isComplete = isComplete;
     }
     public boolean isArchieved() {
-        return isArchieved;
+        return this.isArchieved;
     }
     public void setArchieved(boolean isArchieved) {
         this.isArchieved = isArchieved;
