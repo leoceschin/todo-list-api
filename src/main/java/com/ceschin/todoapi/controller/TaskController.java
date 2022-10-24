@@ -23,17 +23,17 @@ public class TaskController {
     TaskService taskService;
 
     @PostMapping("/create")
-    public Task cadastrarTask(@RequestBody Task task){
+    public Task createTask(@RequestBody Task task){
         return taskService.createTask(task);
     }
 
     @GetMapping("/tasks")
-    public List<Task> listarTasks(){
-        return taskService.listAllTasks();
+    public List<Task> getAllTasks(){
+        return taskService.getAllTasks();
     }
 
     @GetMapping("/task/{id}")
-    public ResponseEntity<Task> listTaskById(@PathVariable(value = "id") Long id){
+    public ResponseEntity<Task> getTaskById(@PathVariable(value = "id") Long id){
         return taskService.getTaskById(id);
     }
 
